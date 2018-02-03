@@ -34,6 +34,7 @@ public class ThreadSafeContainer<E> {
         else {
             mEnd++;
             mElementArray[mEnd] = element;
+            mCurrentSize++;
         }
 
     }

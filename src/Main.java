@@ -7,6 +7,7 @@ public class Main {
         test.add("bruno");
         test.add("you");
         test.add("suck");
+     //   test.add("bitch");
         test.printAll();
     }
 }
