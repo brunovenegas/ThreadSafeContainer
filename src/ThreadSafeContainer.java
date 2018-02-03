@@ -42,14 +42,18 @@ public class ThreadSafeContainer<E> {
     }
 
     public synchronized E remove() {
+        // If empty, nothing to remove
         if(isEmpty()) {
             System.out.println("Sorry, queue is empty! Nothing to remove");
             return null;
         }
+        // Remove element from the front, set mFront to next element, lower mCurrentSize
         else {
             E tempElement = mElementArray[mFront];
             mElementArray[mFront] = null;
-            mFront = (mFront + 1) % mElementArray.length;
+            if(mCurrentSize != 1) {
+                mFront = (mFront + 1) % mElementArray.length;
+            }
             mCurrentSize--;
             return tempElement;
         }
@@ -57,11 +61,15 @@ public class ThreadSafeContainer<E> {
 
     // Clean this up so that only goes through filled elements
     public synchronized void clear() {
+
+        // Iterate through each element and set array to null
         for(int i = 0; i < mCapacity; i++) {
             if(mElementArray[i] != null) {
                 mElementArray[i] = null;
             }
         }
+
+        // Reset Front and End trackers
         mFront = 0;
         mEnd = 0;
     }
