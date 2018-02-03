@@ -26,13 +26,15 @@ public class ThreadSafeContainer<E> {
     public void add(E element) {
         if(mCurrentSize == 0) {
             mElementArray[mFront] = element;
+            mFront = 0;
+            mEnd = 0;
             mCurrentSize++;
         }
         else if(isFull()) {
             System.out.println("Sorry, we are full!");
         }
         else {
-            mEnd++;
+            mEnd = (mEnd + 1) % mElementArray.length;
             mElementArray[mEnd] = element;
             mCurrentSize++;
         }
@@ -40,7 +42,17 @@ public class ThreadSafeContainer<E> {
     }
 
     public synchronized E remove() {
-        return null;
+        if(isEmpty()) {
+            System.out.println("Sorry, queue is empty! Nothing to remove");
+            return null;
+        }
+        else {
+            E tempElement = mElementArray[mFront];
+            mElementArray[mFront] = null;
+            mFront = (mFront + 1) % mElementArray.length;
+            mCurrentSize--;
+            return tempElement;
+        }
     }
 
     // Clean this up so that only goes through filled elements
@@ -50,6 +62,8 @@ public class ThreadSafeContainer<E> {
                 mElementArray[i] = null;
             }
         }
+        mFront = 0;
+        mEnd = 0;
     }
 
     public void shutdown() throws Exception {
@@ -62,10 +76,15 @@ public class ThreadSafeContainer<E> {
         }
         System.out.println("Front: " + mFront);
         System.out.println("End: " + mEnd);
+        System.out.println("Length: " + mElementArray.length);
     }
 
     private boolean isFull() {
-        return mCurrentSize == mCapacity;
+        return mCurrentSize == mElementArray.length;
+    }
+
+    private boolean isEmpty() {
+        return mCurrentSize == 0;
     }
 
 }
