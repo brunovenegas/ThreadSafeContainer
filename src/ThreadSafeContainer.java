@@ -1,3 +1,5 @@
+import com.sun.nio.sctp.ShutdownNotification;
+
 public class ThreadSafeContainer<E> {
 
     // Capacity of array
@@ -23,16 +25,24 @@ public class ThreadSafeContainer<E> {
         mCurrentSize = 0;
     }
 
-    public void add(E element) {
+    public synchronized void add(E element) throws InterruptedException {
+        // If there is no space to put element, wait
+        while(isFull()) {
+            wait();
+        }
+        // If an element has been removed and no longer full, notify all threads
+        if(!isFull()) {
+            notifyAll();
+        }
+
+        // If array's current size is 0, set front, end and element to the 0th location
         if(mCurrentSize == 0) {
             mElementArray[mFront] = element;
             mFront = 0;
             mEnd = 0;
             mCurrentSize++;
         }
-        else if(isFull()) {
-            System.out.println("Sorry, we are full!");
-        }
+        // Else keep going with circular array implementation
         else {
             mEnd = (mEnd + 1) % mElementArray.length;
             mElementArray[mEnd] = element;
@@ -41,22 +51,24 @@ public class ThreadSafeContainer<E> {
 
     }
 
-    public synchronized E remove() {
-        // If empty, nothing to remove
-        if(isEmpty()) {
-            System.out.println("Sorry, queue is empty! Nothing to remove");
-            return null;
+    public synchronized E remove() throws InterruptedException {
+        // If array is empty, there is nothing to remove, wait.
+        while(isEmpty()) {
+            wait();
         }
+        // If array is not empty, notify all threads
+        if(!isEmpty()) {
+            notifyAll();
+        }
+
         // Remove element from the front, set mFront to next element, lower mCurrentSize
-        else {
-            E tempElement = mElementArray[mFront];
-            mElementArray[mFront] = null;
-            if(mCurrentSize != 1) {
-                mFront = (mFront + 1) % mElementArray.length;
-            }
-            mCurrentSize--;
-            return tempElement;
+        E tempElement = mElementArray[mFront];
+        mElementArray[mFront] = null;
+        if(mCurrentSize != 1) {
+            mFront = (mFront + 1) % mElementArray.length;
         }
+        mCurrentSize--;
+        return tempElement;
     }
 
     // Clean this up so that only goes through filled elements
@@ -74,7 +86,7 @@ public class ThreadSafeContainer<E> {
         mEnd = 0;
     }
 
-    public void shutdown() throws Exception {
+    public synchronized void shutdown() throws Exception {
         
     }
 
