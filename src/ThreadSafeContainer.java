@@ -71,11 +71,10 @@ public class ThreadSafeContainer<E> {
         return tempElement;
     }
 
-    // Clean this up so that only goes through filled elements
     public synchronized void clear() {
 
         // Iterate through each element and set array to null
-        for(int i = 0; i < mCapacity; i++) {
+        for(int i = 0; i < mElementArray.length; i++) {
             if(mElementArray[i] != null) {
                 mElementArray[i] = null;
             }
