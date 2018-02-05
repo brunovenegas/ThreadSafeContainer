@@ -12,6 +12,8 @@ public class ThreadSafeContainer<E> {
     private int mEnd;
     // Current size of array
     private int mCurrentSize;
+    // Variable to determine if shutdown method has been called
+    private boolean mIsShutdown;
 
     public  ThreadSafeContainer(){
         
@@ -23,9 +25,10 @@ public class ThreadSafeContainer<E> {
         mFront = 0;
         mEnd = 0;
         mCurrentSize = 0;
+        mIsShutdown = false;
     }
 
-    public synchronized void add(E element) throws InterruptedException {
+    public synchronized void add(E element) throws InterruptedException, ShutdownException {
         // If there is no space to put element, wait
         while(isFull()) {
             wait();
@@ -35,23 +38,29 @@ public class ThreadSafeContainer<E> {
             notifyAll();
         }
 
-        // If array's current size is 0, set front, end and element to the 0th location
-        if(mCurrentSize == 0) {
-            mElementArray[mFront] = element;
-            mFront = 0;
-            mEnd = 0;
-            mCurrentSize++;
+        // If shutdown has been set, throw exception
+        if(mIsShutdown) {
+            throw new ShutdownException("The queue has shutdown");
         }
-        // Else keep going with circular array implementation
         else {
-            mEnd = (mEnd + 1) % mElementArray.length;
-            mElementArray[mEnd] = element;
-            mCurrentSize++;
+            // If array's current size is 0, set front, end and element to the 0th location
+            if (mCurrentSize == 0) {
+                mElementArray[mFront] = element;
+                mFront = 0;
+                mEnd = 0;
+                mCurrentSize++;
+            }
+            // Else keep going with circular array implementation
+            else {
+                mEnd = (mEnd + 1) % mElementArray.length;
+                mElementArray[mEnd] = element;
+                mCurrentSize++;
+            }
         }
 
     }
 
-    public synchronized E remove() throws InterruptedException {
+    public synchronized E remove() throws InterruptedException, ShutdownException {
         // If array is empty, there is nothing to remove, wait.
         while(isEmpty()) {
             wait();
@@ -61,14 +70,20 @@ public class ThreadSafeContainer<E> {
             notifyAll();
         }
 
-        // Remove element from the front, set mFront to next element, lower mCurrentSize
-        E tempElement = mElementArray[mFront];
-        mElementArray[mFront] = null;
-        if(mCurrentSize != 1) {
-            mFront = (mFront + 1) % mElementArray.length;
+        // If shutdown has been set, throw exception
+        if(mIsShutdown) {
+            throw new ShutdownException("The queue has shutdown");
         }
-        mCurrentSize--;
-        return tempElement;
+        else {
+            // Remove element from the front, set mFront to next element, lower mCurrentSize
+            E tempElement = mElementArray[mFront];
+            mElementArray[mFront] = null;
+            if (mCurrentSize != 1) {
+                mFront = (mFront + 1) % mElementArray.length;
+            }
+            mCurrentSize--;
+            return tempElement;
+        }
     }
 
     public synchronized void clear() {
@@ -85,8 +100,8 @@ public class ThreadSafeContainer<E> {
         mEnd = 0;
     }
 
-    public synchronized void shutdown() throws Exception {
-        
+    public synchronized void shutdown() {
+        mIsShutdown = true;
     }
 
     public void printAll() {

@@ -13,8 +13,11 @@ public class Main {
                     test.add("F");
                     test.add("G");
                     test.add("H");
+                    test.shutdown();
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
+                } catch (ShutdownException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         };
@@ -24,6 +27,7 @@ public class Main {
                 try {
                     System.out.println("Removed item: " + test.remove());
                     System.out.println("Removed item: " + test.remove());
+
                     System.out.println("Removed item: " + test.remove());
                     System.out.println("Removed item: " + test.remove());
                     System.out.println("Removed item: " + test.remove());
@@ -32,6 +36,8 @@ public class Main {
                     System.out.println("Removed item: " + test.remove());
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
+                } catch (ShutdownException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         };
