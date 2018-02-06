@@ -70,11 +70,14 @@ class EmployeeWeightDatabase {
         // loop over ws
         int o = -1;
         for ( EmployeeWeight ew : ws ) {
+            // Indexing issue, o = 1, o = 2 should be o = 0, o = 1;
             if ( o1 == ew.office ) o = 1;
             if ( o2 == ew.office ) o = 2;
             a[o] *= ew.actual_weight_in_kg;
             i[o] *= ew.ideal_weight_in_kg;
-            ++n[0]; // count
+
+            // should be o possibly? also why o shouldn't be used, can cause issues
+            ++n[0]; // count// 0
         }
 
         // geometric means
@@ -87,6 +90,9 @@ class EmployeeWeightDatabase {
         String res; // temporary
 
         // equal, less, or greater
+        // if statements aren't implemented correctly, win is part of if-statement, but res never is,
+        // so "winner" will always be office2, or o2
+        // also
         if ( ( score[0] = score[1] ) == 0 ) win = score[0]; res = "tie";
         if ( score[0] < score[1] ) win = score[0]; res = o1;
         if ( score[1] > score[0] ) win = score[1]; res = o2;

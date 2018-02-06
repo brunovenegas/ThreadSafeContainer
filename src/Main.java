@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String args[]) {
-        ThreadSafeContainer<String> test = new ThreadSafeContainer<>(5);
+/*        ThreadSafeContainer<String> test = new ThreadSafeContainer<>(5);
         Runnable producer = new Runnable() {
             public void run() {
                 try {
@@ -43,21 +43,6 @@ public class Main {
         };
 
         new Thread(producer).start();
-        new Thread(consumer).start();
-
-/*        test.printAll();
-        test.remove();
-        test.add("fuck");
-        test.add("you");
-        test.add("bruno");
-        test.add("you");
-        test.add("suck");
-        test.add("bitch");
-        test.printAll();
-        System.out.println(test.remove());
-        test.add("bitch");
-        test.printAll();
-        test.clear();
-        test.printAll();*/
+        new Thread(consumer).start();*/
     }
 }
