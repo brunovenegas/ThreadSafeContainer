@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a42c6128-4f8e-4823-b58d-261f57209d58" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Nevelex Programming Questions Explanations.doc" afterPath="$PROJECT_DIR$/Nevelex Programming Questions Explanations.doc" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ThreadSafeContainer.iml" afterPath="$PROJECT_DIR$/ThreadSafeContainer.iml" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +18,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+                <state relative-caret-position="714">
+                  <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -29,8 +31,8 @@
           <file leaf-file-name="ThreadSafeContainer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ThreadSafeContainer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="654">
-                  <caret line="78" column="50" lean-forward="true" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+                <state relative-caret-position="34">
+                  <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="32" />
                   <folding>
                     <element signature="e#3018#3019#0" expanded="true" />
                     <element signature="e#3052#3053#0" expanded="true" />
@@ -55,11 +57,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EmployeeWeightDatabase_Reprise.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="EmployeeWeightDatabase_Reprise.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/EmployeeWeightDatabase_Reprise.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+                <state relative-caret-position="510">
+                  <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -73,7 +75,7 @@
             <entry file="file://$PROJECT_DIR$/EmployeeWeightDatabase.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="824">
-                  <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+                  <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
                   <folding>
                     <element signature="e#0#3690#0" expanded="true" />
                     <element signature="e#2057#2058#0" expanded="true" />
@@ -107,9 +109,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/ShutdownException.java" />
         <option value="$PROJECT_DIR$/src/ThreadSafeContainer.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/EmployeeWeightDatabase.java" />
         <option value="$PROJECT_DIR$/src/EmployeeWeightDatabase_Reprise.java" />
+        <option value="$PROJECT_DIR$/src/ThreadSafeContainerTest.groovy" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -159,6 +162,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="groovy.util.GroovyTestCase" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -342,18 +355,6 @@
           <line>7</line>
           <properties />
           <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="62" />
@@ -571,14 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShutdownException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -597,10 +590,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeWeightDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#3690#0" expanded="true" />
+            <element signature="e#2057#2058#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EmployeeWeightDatabase_Reprise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ThreadSafeContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="78" column="50" lean-forward="true" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+        <state relative-caret-position="34">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="32" />
           <folding>
             <element signature="e#3018#3019#0" expanded="true" />
             <element signature="e#3052#3053#0" expanded="true" />
@@ -612,22 +625,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeWeightDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/ThreadSafeContainerTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#3690#0" expanded="true" />
-            <element signature="e#2057#2058#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EmployeeWeightDatabase_Reprise.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        <state relative-caret-position="714">
+          <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
           <folding />
         </state>
       </provider>

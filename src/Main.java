@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String args[]) {
-/*        ThreadSafeContainer<String> test = new ThreadSafeContainer<>(5);
+        ThreadSafeContainer<String> test = new ThreadSafeContainer<>(5);
         Runnable producer = new Runnable() {
             public void run() {
                 try {
@@ -43,6 +43,6 @@ public class Main {
         };
 
         new Thread(producer).start();
-        new Thread(consumer).start();*/
+        new Thread(consumer).start();
     }
 }
